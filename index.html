@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Boardroom Cloud Runner — Live Proof</title>
+  <style>
+    :root{--bg:#07131f;--card:#0d2235;--green:#1fd17f;--text:#eef7ff;--muted:#9fb6c9;--line:#1e3d57;--blue:#61c3ff;}
+    *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top,#0e3352,#07131f 48%,#03080d);color:var(--text);padding:22px;}
+    .wrap{max-width:860px;margin:0 auto}.badge{display:inline-block;background:rgba(31,209,127,.13);border:1px solid var(--green);color:var(--green);padding:8px 12px;border-radius:999px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-size:12px}
+    h1{font-size:34px;line-height:1.05;margin:18px 0 10px}.sub{color:var(--muted);font-size:18px;line-height:1.45}.grid{display:grid;gap:14px;margin-top:22px}.card{background:rgba(13,34,53,.88);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+    .ok{font-size:28px;color:var(--green);font-weight:900}.label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}.big{font-size:20px;font-weight:800}.btn{display:block;text-align:center;text-decoration:none;background:var(--green);color:#03110a;font-weight:900;border-radius:14px;padding:15px;margin-top:12px}.btn.secondary{background:transparent;color:var(--blue);border:1px solid var(--blue)}
+    pre{white-space:pre-wrap;background:#03080d;border:1px solid #14324a;border-radius:14px;padding:14px;color:#d8f6e7;font-size:14px;line-height:1.45;overflow:auto}.steps{margin:0;padding-left:22px;color:#dbefff}.steps li{margin:8px 0}.small{color:var(--muted);font-size:13px;line-height:1.4}.warn{border-color:#66501b;background:rgba(70,50,10,.35)}
+  </style>
+</head>
+<body><main class="wrap">
+  <span class="badge">Cloud run passed</span>
+  <h1>Boardroom Cloud Runner</h1>
+  <p class="sub">This is the container runner proof page. The runner is not a phone app yet. It is a cloud build/test machine. It wakes up, builds a Docker container, pulls your app, runs the command, then shuts down.</p>
+
+  <section class="grid">
+    <div class="card">
+      <div class="label">Latest live test</div>
+      <div class="ok">PASS ✅</div>
+      <p class="big">Boardroom was tested inside the cloud container.</p>
+      <a class="btn" href="https://github.com/jamiejhouston-commits/boardroom-cloud-runner/actions/runs/27876441124">Open the GitHub run</a>
+      <a class="btn secondary" href="https://github.com/jamiejhouston-commits/boardroom-cloud-runner">Open the repo</a>
+    </div>
+
+    <div class="card">
+      <div class="label">What it did</div>
+      <ol class="steps">
+        <li>GitHub Actions started a fresh Linux cloud machine.</li>
+        <li>It built the Docker container from the runner repo.</li>
+        <li>It cloned Boardroom into the container.</li>
+        <li>It ran Boardroom's Python tests.</li>
+        <li>The tests passed.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <div class="label">Proof from the logs</div>
+      <pre>Cloning target repo: https://github.com/jamiejhouston-commits/boardroom.git
+target_dir=/work/target
+commit=8abd208
+== Running build command ==
+Ran 56 tests in 0.016s
+OK
+status=success</pre>
+    </div>
+
+    <div class="card warn">
+      <div class="label">Important</div>
+      <p class="big">You cannot “open” this container like an app on the phone.</p>
+      <p class="small">The container is temporary. GitHub creates it for the test, runs it, saves logs, then destroys it. What you can open on the phone is the GitHub run page and logs. To make it playable inside Boardroom, the next job is wiring Boardroom's UI to start runs and show status/logs.</p>
+    </div>
+  </section>
+</main></body></html>
